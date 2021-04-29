@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>일룸</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <script src="prefixfree.min.js"></script>
+    
+<script>
+    $(document).ready(function () {
+        // 네비게이션 버튼
+        $('#main_navigation a').click(function () {
+            // 변수를 선언합니다.
+            var target = $(this).attr('data-target');
+
+            // 클래스를 적용합니다.
+            $(':not([data-name=' + target + '])').removeClass('active');
+            $('[data-name=' + target + ']').addClass('active');
+        });
+		
+		var myVideo = $('video').get(0);
+			$('#multimedia').on('mouseenter',function(){
+				$(this).find('#play').show();
+			});
+			$('#multimedia').on('mouseleave',function(){
+				$(this).find('#play').hide();
+			});
+			$('#play').on('click',function(){
+				if($('#play').text() == 'play'){
+					myVideo.play();
+					$(this).text('pause');
+				}else{
+					myVideo.pause();	
+					$(this).text('play');
+				}
+				$(this).hide();
+			});
+
+        // 좌우 버튼, 3개의 컨텐츠를 계속 순환시킬경우..
+        var currentPosition = 1;
+        $('#character > a:nth-child(1)').click(function () {
+			//현재값에 1을 빼라, 값이 1보다 작아지면 3으로 가서 시작하라
+            currentPosition -= 1;
+            if (currentPosition < 1) {
+                currentPosition = 3;
+            }
+            $('article').removeClass('show');
+            $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+        });
+        $('#character > a:nth-child(2)').click(function () {
+			//현재값에서 1을 더하라, 3보다 커지면 1이되어서 계속 순환되라
+            currentPosition += 1;
+            if (currentPosition > 3) {
+                currentPosition = 1;
+            }
+            $('article').removeClass('show');
+            $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+        });
+		
+		
+    }); 
+</script>
+</head>
+<body>
+    <div id="gnb_item">
+        <a href="https://www.iloom.com/">
+            <img src="images/illom3.png">
+        </a>
+    </div>
+
+    <div id="body">
+    <div id="title">
+        <h1 data-name="information">Information</h1>
+        <h1 data-name="character">Products</h1>
+        <h1 data-name="multimedia">Community</h1>
+        <h1>Value</h1>
+        
+    </div>
+
+    <section id="container">
+        <!-- 메인 페이지 -->
+        <div id="main" data-name="main" class="active">
+            <img src="images/main2-3.jpg" />
+        </div>
+
+        <!-- 정보 페이지 -->
+        <div id="information" data-name="information">
+            <img src="images/main.jpg" />
+            <div class="description">
+                <p>구성원들이 꿈을 실현할수 있고,&nbsp;
+                    고객과 주주에게는 지속 가능한 가치를 제공하며,<br>
+                    사회의 일원으로서 책임을 다하는&nbsp; &nbsp;
+                    
+                    바르고 좋은 회사를 만든다.
+                </p>
+                
+            </div>
+        </div>
+
+        <!-- 캐릭터 페이지 -->
+        <div id="character" data-name="character">
+            <a href="#">Left Button</a>
+            <a href="#">Right Button</a>
+            <article class="show">
+                <h1>침대</h1>
+                <!--<img src="Images/Character_Text_1.png" />-->
+                <img src="images/bed-1.jpg" />
+                <p>침대에 슬라이딩 책상이 장착되어 <br>
+                책읽기, 노트북 작업 등 침대 위에서도 다양한 활동이 가능한 모션베드 캐주얼(책상형)입니다. <br>
+                슬라이딩 책상을 끝에 두고 학습 공간을 만들면 별도의 책상없이도 침대 하나로 수면과 학습이 가능 합니다.</p>
+            </article>
+            <article>
+                <h1>책상</h1>
+                <!--<img src="Images/Character_Text_2.png" />-->
+                <img src="images/desk-1.jpg" />
+                <p>상판 모서리가 부드러운 곡선으로 마감되어 감성적인 분위기를 더해주는 다나 책상입니다<br>
+                책 선반에 책이나 물품을 수납하고 선반 위에 작은 소품을 올려 나만의 선반 공간으로 꾸며보세요.</p>
+            </article>
+            <article>
+                <h1>옷장</h1>
+                <!--<img src="Images/Character_Text_3.png" />-->
+                <img src="images/slide-1.jpg" />
+                <p>도어 위치에 따라 두 가지 모습의 오픈형 옷장을 연출할 수 있는 슬라이딩 옷장입니다.</p>
+            </article>
+        </div>
+
+        <!-- 영상 페이지 muted를 넣어 소리제거상태로 서비스함-->
+        <div id="multimedia" data-name="multimedia">
+        	<!--<a href="#" id="play">play</a>-->
+            <!--<video width="940" height="480" controls muted preload>
+            	<source src="Images/video.mp4" type="video/mp4">
+            </video>-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/lliW4W5RqmQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- 다운 로드 페이지-->
+        <div id="download" data-name="download">
+            <p>사람들의 삶의 질을 향상시키는 <br>바르고 좋은 가구를 만듭니다. <br>
+                <br>-일룸-</p>
+        </div>
+    </section>
+
+    <!-- naviagtion-->
+    <nav id="main_navigation">
+        <ul>
+            <li><a href="#" data-target="information">Movie Info</a></li>
+            <li><a href="#" data-target="character">Character</a></li>
+            <li><a href="#" data-target="multimedia">Multimedia</a></li>
+            <li><a href="#" data-target="download">Download</a></li>
+        </ul>
+    </nav>
+        </div>
+</body>
+</html>
