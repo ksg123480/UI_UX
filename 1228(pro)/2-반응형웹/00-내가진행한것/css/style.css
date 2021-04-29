@@ -1,0 +1,221 @@
+﻿@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+/* reset */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+body { font:12px/1.6 'Poiret One'; color:#555; } 
+p em{font-size: 15px;}
+header{position:fixed; width:15%; height:100%; background:white; top:0px; left:0px;    /*애니추가*/ transition:all 0.5s;}
+nav{position:relative; width:85%; height:35px; background:#212121; margin-left:15%; /*애니추가*/ transition:all 0.5s;}
+section{width:85%; position:relative; margin-left:15% }
+
+article{float:left; height:260px;     
+/*애니효과는 나중에 추가할 것  마지막숫자는 반복횟수*/
+transition:all 0.5s; animation:scale 1s 1;}
+@keyframes scale{
+	0%{transform:scale(0.5);}
+	100%{transform:scale(1);}	
+}
+
+article:nth-child(1){width:60%; height:520px; background:#ddd;}
+article:nth-child(2){width:40%; background:#ccc;}
+article:nth-child(3){width:20%; background:#bbb;}
+article:nth-child(4){width:20%; background:#aaa;}
+article:nth-child(5){width:20%; background:#999;}
+article:nth-child(6){width:40%; background:#888;}
+article:nth-child(7){width:20%; background:#777;}
+article:nth-child(8){width:20%; background:#666;}
+article:nth-child(9){width:40%; background:#555;}
+article:nth-child(10){width:20%; background:#444;}
+article:nth-child(11){width:20%; background:#333;}
+article:nth-child(12){width:20%; background:#222;}
+
+/* header 컨텐츠 01, 1600이상일때 (기본값) 미디어쿼리 아래쪽에 작성하면 미디어쿼리가 무시되고 얘가 적용된다. 직접해볼것*/
+header h1 { width:300px; height:136px; background:url(../img/logo.png) no-repeat 0px 0px; background-size:contain; position:absolute; top:30px;	left:50%; transform: translateX(-50%);	text-indent:-99999px;}
+#gnb { position:absolute; top:250px; right:57px;}
+#gnb a { display:block; padding:8px 30px;	font-size:17px; font-weight:bold; color:#555; text-align:left; line-height:1.8; transition:all .5s;}
+#gnb a:hover { color:skyblue;}
+#gnb a i { margin-right:13px;}
+.snsSet { width:90px;	height:47px;	position:absolute; bottom:50px; right:50%; margin-right:-45px;}
+.snsSet a { float:left;}
+
+/*nav 08 */
+nav a:nth-child(1) {	position:absolute; top:5px;	left:10px;}
+nav a:nth-child(2) {	position:absolute; top:5px;	left:150px;}
+nav a:nth-child(3) {	position:absolute; top:5px;	right:90px;}
+nav a:nth-child(4) {	position:absolute; top:5px;	right:10px;}
+
+article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
+
+/* 배경이미지 삽입*/
+article .bg1 { background-image:url(../img/a.png); background-repeat:no-repeat; background-position: 555px -500px;}
+article .bg2 { background-image:url(../img/e.png);}
+article .bg3 { background-image:url(../img/123.webp);}
+article .bg4 { background-image:url(../img/k-1.jpg);}
+article .bg5 { background-image:url(../img/4.webp);}
+article .bg6 { background-image:url(../img/5.webp);}
+article .bg7 { background-image:url(../img/l-1.jpg);}
+
+/* 이미지박스 */
+article .bg { background-size:cover; background-position:center center; }
+article .bg span { font-size:60px; color:#fff;	position:absolute; bottom:0px; right:20px; transform:scale(10); opacity:0;	transition:all 0.6s;}
+article .bg1 span { font-size:170px; bottom:-76px;	right:-6px; opacity:1; transform:scale(1); transition:all 0.5s;}
+
+/*이미지박스 호버효과*/
+article:hover .bg span { opacity:1; transform:scale(1);}
+article .bg1:hover span { transform:rotateY(-90deg); transform-origin:right bottom; color:#222; }
+article .bg1{perspective:90px;}
+
+/* 텍스트박스 */
+article .txt { color:#666; background:#fff; box-sizing:border-box; padding:40px 30px; transition:all 1s;}
+article:nth-child(3) .txt { background:#bff7fa;}
+article:nth-child(11) .txt { background:#e3f1fb;}
+article .txt i { font-size:300px; color:#b2effc; opacity:0; position:absolute; bottom:-70px; right:-200px; transition:all 0.7s;}
+article:nth-child(3) .txt i {	position:absolute; bottom:-20px; right:-15px; font-size:200px; color:#fff; opacity:0.7;}
+article .txt strong { font-size:30px;	font-weight:normal; line-height:1.6;	color:#444; margin-bottom:20px; transition:all 1s;}
+
+/*텍스트박스 호버효과*/
+article:hover .txt { background:#C9F0FA;	color:#fff;}
+article:hover .txt i { right:0px; opacity:0.5;}
+article:hover .txt strong { color:#fff;}
+
+
+
+/*미디어쿼리문은 무조건 문장의 최하단에 작성하는것으로 기억할것.*/
+@media screen and (min-width:1280px) and (max-width:1599px){
+	header{position:relative; width:100%; height:80px;}
+	nav{width:100%; margin-left:0;}	
+	section{width:100%; margin-left:0;}
+	
+	/* header 컨텐츠 02 */
+	header h1 { width:250px; height:50px; background-image:url(../img/logo.png); top:15px; left:120px; margin-left:0px;}	
+	#gnb { top:20px; right:200px;}	
+	#gnb li { float:left;}
+	.snsSet { bottom:20px; right:80px;}
+}
+
+@media screen and (min-width:1024px) and (max-width:1279px){
+	header{position:relative; width:100%; height:80px;}
+	nav{width:100%; margin-left:0%;}
+	section{width:100%; margin-left:0;}
+	
+	article:nth-child(1){width:75%;}
+	article:nth-child(2){width:25%;}
+	article:nth-child(3){width:25%;}
+	article:nth-child(4){width:25%;}
+	article:nth-child(5){width:25%;}
+	article:nth-child(6){width:50%;}
+	article:nth-child(7){width:50%;}
+	article:nth-child(8){width:25%;}
+	article:nth-child(9){width:25%;}
+	article:nth-child(10){width:50%;}
+	article:nth-child(11){width:25%;}
+	article:nth-child(12){width:25%;}
+	
+	/* header 컨텐츠 03  */
+	header h1 { width:250px; height:50px; background-image:url(../img/logo.png); top:15px; left:120px; margin-left:0px;}
+	#gnb { position: absolute; top:20px; right:30px;}	
+	#gnb li { float:left;}	
+	.snsSet {	display:none;}
+}
+
+@media screen and (min-width:780px) and (max-width:1023px){
+	header{position:relative; width:100%; height:80px;}
+	nav{width:100%; margin-left:0%;}
+	section{width:100%; margin-left:0;}
+	
+	article:nth-child(1){width:100%; height:400px;}
+	article:nth-child(2){width:66.666%;}
+	article:nth-child(3){width:33.333%;}
+	article:nth-child(4){width:33.333%; display:none;}
+	article:nth-child(5){width:33.333%;}
+	article:nth-child(6){width:66.666%;}
+	article:nth-child(7){width:66.666%; display:none;}
+	article:nth-child(8){width:33.333%;}
+	article:nth-child(9){width:33.333%;}
+	article:nth-child(10){width:66.666%; display:none;}
+	article:nth-child(11){width:33.333%;}
+	article:nth-child(12){width:33.333%; display:none;}
+	
+	/* header 컨텐츠 04*/
+	header h1 { width:250px; height:50px; background-image:url(../img/logo.png); top:15px; left:120px; margin-left:0px;}	
+	#gnb { top:20px; right:10px;}	
+	#gnb li { float:left;}	
+	#gnb a { padding:10px 10px;}		
+	.snsSet { display:none;}	
+}
+
+@media screen and (min-width:640px) and (max-width:779px){
+	header{position:relative; width:100%; height:80px;}
+	nav{width:100%; margin-left:0%;}
+	section{width:100%; margin-left:0;}
+	
+	article:nth-child(1){width:100%; height:400px;}
+	article:nth-child(2){width:100%;}
+	article:nth-child(3){width:33.333%; display:none;}
+	article:nth-child(4){width:100%; display:none;}
+	article:nth-child(5){width:50%;}
+	article:nth-child(6){width:50%;}
+	article:nth-child(7){width:66.666%; display:none;}
+	article:nth-child(8){width:50%;}
+	article:nth-child(9){width:50%;}
+	article:nth-child(10){width:66.666%; display:none;}
+	article:nth-child(11){width:50%;}
+	article:nth-child(12){width:50%;}
+	
+	/* header 컨텐츠 05 앞구간과 동일함 */
+	header h1 { width:250px; height:50px; background-image:url(../img/logo.png); top:15px; left:120px; margin-left:0px;}	
+	#gnb { top:20px; right:10px;}	
+	#gnb li { float:left;}	
+	#gnb a { padding:10px 10px;}	
+	.snsSet { display:none;}	
+}
+
+@media screen and (min-width:48px) and (max-width:639px){
+	header{position:relative; width:100%; height:130px;}
+	nav{display:none;}
+	section{width:100%; margin-left:0;}
+	article{height:150px;}
+	
+	article:nth-child(1){width:100%; height:300px;}
+	article:nth-child(2){width:100%;}
+	article:nth-child(3){width:33.333%; display:none;}
+	article:nth-child(4){width:100%; display:none;}
+	article:nth-child(5){width:50%;}
+	article:nth-child(6){width:50%;}
+	article:nth-child(7){width:66.666%; display:none;}
+	article:nth-child(8){width:50%;}
+	article:nth-child(9){width:50%;}
+	article:nth-child(10){width:66.666%; display:none;}
+	article:nth-child(11){width:50%;}
+	article:nth-child(12){width:50%;}
+	
+	/* header 컨텐츠 06 */
+	header h1 { position:relative; top:20px; left:55%; transform: translateX(-50%);  width:250px; height:50px; background-image:url(../img/logo.png);}
+	#gnb { width:100%; height:40px; top:80px; right:0px;}	
+	#gnb li { float:left; width:25%;}	
+	#gnb a { padding:4px; text-align:center;}	
+	.snsSet { display:none;}	
+	
+}
+
+@media screen and (max-width:479px){
+	header{position:fixed; width:100%; height:40px; background-color:transparent; z-index:5;}
+	nav{display:none;}
+	section{width:100%; margin-left:0; z-index:4;}
+	article{display:none;}
+	article:nth-child(1){display:block; position:fixed; width:100%; height:100%;}
+	
+	/* header 컨텐츠 07  기존로고사이즈를 줄였으므로 기본값(1600)에 적용된 left:50% 에서 절반만큼 좌로 이동해서 중앙정렬시킴
+	 여기부분에서 일부 교재와 맞지않아 직접 수정하여 코딩함	*/
+	header h1 { position:relative; top:20px; left:57%; transform: translateX(-50%); width:300px; height:100px; background:url(../img/logo.png);background-repeat:no-repeat; text-indent: -9999999px;}	
+	#gnb { width:250px; top:180px; right:50%; margin-right:-125px;}	
+	#gnb li{float:none; width:100%; height:50px;}
+	#gnb a {width:100%; background:#000; margin:8px 0px; border-radius:10px; opacity:0.5; color:#fff;}	
+	#gnb a:hover { opacity:1; transform:scale(1.1);}
+	
+}
+
